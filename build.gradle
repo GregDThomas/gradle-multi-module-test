@@ -1,0 +1,39 @@
+plugins {
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+allprojects {
+    group 'com.example'
+    version '0.0.1-SNAPSHOT'
+    repositories {
+        mavenCentral()
+    }
+    ext {
+        springBootVersion = '2.2.8.RELEASE'
+        springCloudVersion = 'Hoxton.SR6'
+    }
+}
+
+subprojects {
+
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = sourceCompatibility
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+            }
+        }
+    }
+
+    dependencies {
+        api platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+        api platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+    }
+
+}

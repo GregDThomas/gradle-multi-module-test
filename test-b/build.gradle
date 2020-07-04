@@ -1,0 +1,9 @@
+ext {
+    camundaVersion = '7.13.0'
+}
+
+dependencies {
+    api platform("org.camunda.bpm:camunda-bom:${camundaVersion}")
+
+    api 'org.camunda.bpm:camunda-engine'
+}
