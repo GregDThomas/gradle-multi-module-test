@@ -18,7 +18,6 @@ subprojects {
 
     apply plugin: 'java-library'
     apply plugin: 'maven-publish'
-    apply plugin: 'io.spring.dependency-management'
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = sourceCompatibility
